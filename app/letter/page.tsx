@@ -18,8 +18,8 @@ const LetterPage = () => {
 
   return (
     <div>
-      <Link href="/">홈으로 돌아가기</Link>
-      <h1 className="mt-8">오장원 선생님께 편지쓰기</h1>
+      <a href="/">홈으로 돌아가기</a>
+      <h1 className="mt-8 block">오장원 선생님께 편지쓰기</h1>
       <p>떠나시는 오장원 선생님을 위해 편지를 써보세요!</p>
       <form action={clientSubmit}>
         <Label htmlFor="title">제목</Label>

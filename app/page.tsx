@@ -41,7 +41,7 @@ export default async function Home() {
       </p>
       <h3>항상 감사합니다.</h3>
       <Hearts oldhearts={oldhearts} />
-      <Link href="/letter">오장원 선생님께 편지쓰기 =&gt;</Link>
+      <a href="/letter">오장원 선생님께 편지쓰기 =&gt;</a>
       <Countdown />
     </>
   );
