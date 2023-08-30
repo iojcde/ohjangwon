@@ -10,7 +10,7 @@ const Letters = async ({
     return <>ㅁㄴㅇㄹ</>;
   }
 
-  const letters = await db.letter.findMany({});
+  const letters = await db.letter.findMany({ orderBy: { createdAt: "desc" } });
 
   return (
     <div>
