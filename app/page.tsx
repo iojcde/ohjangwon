@@ -40,6 +40,8 @@ export default async function Home() {
       <Hearts oldhearts={oldhearts} />
       <a href="/letter">오장원 선생님께 편지쓰기 =&gt;</a>
       <Countdown />
+
+      <span className="text-sm">제작: 10312 안지호 & 10306 김태일</span>
     </>
   );
 }
