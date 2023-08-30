@@ -1,5 +1,5 @@
 "use client";
-import Countdownthing from 'react-countdown'
+import Countdownthing from "react-countdown";
 
 const Countdown = () => {
   return (
@@ -7,7 +7,7 @@ const Countdown = () => {
       renderer={({ days, hours, minutes, seconds }) => {
         return (
           <p className="text-sm font-bold">
-            {days}일 {hours}시간 {minutes}분 {seconds}초 남았습니다.
+            이별까지 {days}일 {hours}시간 {minutes}분 {seconds}초 남았습니다.
           </p>
         );
       }}
