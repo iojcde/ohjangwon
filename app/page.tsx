@@ -1,10 +1,7 @@
-import Image from "next/image";
-import Link from "next/link";
 import dynamic from "next/dynamic";
 import { addHeart, getHearts } from "./op-hearts";
-import { use, useState } from "react";
 import Hearts from "./heart";
-import Countdown from "./countdown";
+const Countdown = dynamic(() => import("./countdown"), { ssr: false });
 
 export default async function Home() {
   const oldhearts = await getHearts();

@@ -1,0 +1,26 @@
+import { db } from "@/lib/db";
+import { Letter } from "./letter";
+
+const Letters = async ({
+  params: { password },
+}: {
+  params: { password: string };
+}) => {
+  if (password != process.env.PASSWORD) {
+    return <>ㅁㄴㅇㄹ</>;
+  }
+
+  const letters = await db.letter.findMany({});
+
+  return (
+    <div>
+      <h2>지금까지 보내진 편지들</h2>
+
+      {letters.map((l, i) => (
+        <Letter key={i} title={l.title} content={l.content} />
+      ))}
+    </div>
+  );
+};
+
+export default Letters;
