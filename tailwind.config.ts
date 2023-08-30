@@ -1,20 +1,82 @@
-import type { Config } from 'tailwindcss'
+/** @type {import('tailwindcss').Config} */
+const { toRadixVar, toRadixVars } = require("windy-radix-palette/vars");
 
-const config: Config = {
+module.exports = {
+  darkMode: ["class"],
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "app/**/*.{ts,tsx}",
+    "components/**/*.{ts,tsx}",
+    "milkdown/**/*.{ts,tsx}",
   ],
   theme: {
+    container: {
+      center: true,
+      padding: "1.5rem",
+      screens: {
+        xl: "1280px",
+        "2xl": "1000px",
+      },
+    },
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        border: toRadixVar("gray", 6),
+        input: toRadixVar("gray", 6),
+        ring: toRadixVar("gray", 7),
+        background: toRadixVar("gray", 1),
+        foreground: toRadixVar("gray", 12),
+        primary: {
+          DEFAULT: toRadixVar("gray", 12),
+          foreground: toRadixVar("gray", 1),
+        },
+        secondary: {
+          DEFAULT: toRadixVar("gray", 4),
+          foreground: toRadixVar("gray", 12),
+        },
+        destructive: {
+          DEFAULT: toRadixVar("red", 11),
+          foreground: toRadixVar("gray", 1),
+        },
+        muted: {
+          DEFAULT: toRadixVar("gray", 3),
+          foreground: toRadixVar("gray", 11),
+        },
+        accent: {
+          DEFAULT: toRadixVar("gray", 3),
+          foreground: toRadixVar("gray", 12),
+        },
+        popover: {
+          DEFAULT: toRadixVar("gray", 1),
+          foreground: toRadixVar("gray", 12),
+        },
+        card: {
+          DEFAULT: toRadixVar("gray", 1),
+          foreground: toRadixVar("gray", 12),
+        },
+      },
+
+      fontFamily: {
+        sans: ["var(--font-inter)"],
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },
-  plugins: [],
-}
-export default config
+  plugins: [
+    require("tailwindcss-animate"),
+    require("windy-radix-palette"),
+    require("@tailwindcss/typography"),
+    require("windy-radix-typography"),
+  ],
+};
