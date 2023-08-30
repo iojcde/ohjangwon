@@ -17,7 +17,7 @@ const Letters = async ({
       <h2>지금까지 보내진 편지들</h2>
 
       {letters.map((l, i) => (
-        <Letter key={i} title={l.title} content={l.content} />
+        <Letter author={l.author} key={i} title={l.title} content={l.content} />
       ))}
     </div>
   );
