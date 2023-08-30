@@ -1,9 +1,5 @@
 "use client";
-import dynamic from "next/dynamic";
-
-export const Countdownthing = dynamic(() => import("react-countdown"), {
-  ssr: false,
-});
+import Countdownthing from 'react-countdown'
 
 const Countdown = () => {
   return (
